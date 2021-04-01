@@ -4,7 +4,7 @@ The main goal of this repository is to compare different face detectors and face
 
 
 ### Demo
-picture
+![](imgs/obama_bush.jpg)
 
 ### Data structure
 Provide the face images your want to detect in the data/images_facebank folder, and guarantee it has a structure like following:
@@ -20,7 +20,6 @@ data/images_facebank
 ```
 
 ### Pretrained models
-Put pretrained models into path pretrained_path and change config according to this path
 
 ### References
 1. [FaceNet](https://github.com/timesler/facenet-pytorch)
