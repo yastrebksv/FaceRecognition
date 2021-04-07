@@ -1,6 +1,6 @@
 # FaceRecognition
 ### Introduction
-The main goal of this repository is to compare different face detectors and face recognizers. This tool can help you to store database with faces and their embeddings, find the most similar face from database according to this embedding. Code for result visualization is also provided. 
+The main goal of this repository is to compare different face detectors and face recognizers. This tool allows to store database with faces and their embeddings, find the most similar face from database by human photo. Code for result visualization is also provided. 
 
 ### Requirements
  [**PyTorch**](https://pytorch.org/) and [**Torchvision**](https://pytorch.org/) needs to be installed before running the scripts,  PyTorch v1.1 or later is supported. 
@@ -25,7 +25,8 @@ data/images_facebank
 ### Demo
 ![](imgs/obama_bush.jpg)
 <br>
-Run `face_verify.py` to get such pictures.
+Run `face_verify.py --create_facebank` to get such pictures.
+</br>
 
 
 ### Pretrained models

@@ -17,19 +17,21 @@ class End2End:
         return(bbox_faces, faces, embedding_faces)
     
     def prepare_facebank(self, path_images, path_facebank):
-        self.embeddings = []
+        self.facebank_embeddings = []
         self.facebank_names = []
         name_folders = os.listdir(path_images)
         for name in name_folders:
             path_folder = os.path.join(path_images, name)
             images_name = os.listdir(path_folder)
+            embeddings = []
             for img_name in images_name:
                 img = cv2.imread(os.path.join(path_folder, img_name))[:,:,::-1]
                 _,_,emb = self.run(img)
-                # if len(emb) == 1:
-                self.embeddings.append(emb[0])
+                embeddings.append(emb[0])
                 self.facebank_names.append(name)
-        self.facebank_embeddings = torch.cat(self.embeddings)
+            embeddings = torch.cat(embeddings).mean(0,keepdim=True)   
+            self.facebank_embeddings.append(embeddings)
+        self.facebank_embeddings = torch.cat(self.facebank_embeddings)
         if path_facebank:
             facebank = {'embeddings': self.facebank_embeddings, 
                         'names': self.facebank_names}
